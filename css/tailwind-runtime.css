@@ -1045,8 +1045,8 @@ video {
   padding-right: 20%;
 }
 
-.tw-pl-\[5\%\]{
-  padding-left: 5%;
+.tw-pl-\[3\%\]{
+  padding-left: 3%;
 }
 
 .tw-pt-16{
@@ -1348,6 +1348,10 @@ video {
 
   .max-md\:tw-place-items-center{
     place-items: center;
+  }
+
+  .max-md\:tw-gap-2{
+    gap: 0.5rem;
   }
 
   .max-md\:tw-gap-5{
