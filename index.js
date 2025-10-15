@@ -126,4 +126,4 @@ stars.forEach((star, i) => {
    
 })
     
-starContainer.addEventListener('mouseleave', hideActiveStar)
+starContainer?.addEventListener('mouseleave', hideActiveStar)

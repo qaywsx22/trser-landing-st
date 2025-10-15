@@ -46,6 +46,9 @@ class SlideShow{
 
     showSlides(n){
         let slides = this.slideContainer.querySelectorAll(".slides")
+        if (slides.length === 0) {
+            return;
+        }
         let dots = this.slideContainer.querySelectorAll(".dot")
 
         this.slideIndex = n
