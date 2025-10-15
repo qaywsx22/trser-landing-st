@@ -430,18 +430,23 @@
                 </h2>
             </div>
             <form class="tw-mt-4 tw-flex tw-max-w-[350px] tw-flex-col tw-gap-3">
+                <input type="hidden" name="apiKey" value="sf_fd0cd4gi7a10ind6k6fm803j">
+                <!-- Anti-spam honeypot field -->
+                <input type="text" name="honeypot" style="display: none" tabindex="-1" autocomplete="off">
+
+
                 <div class="tw-flex tw-flex-col tw-gap-4">
                     <div class="tw-flex tw-flex-col tw-gap-1">
                         <div class="tw-text-gray-500">Name</div>
-                        <input type="text" class="input" maxlength="10" required placeholder="Name" />
+                        <input type="text" class="input" maxlength="10" required placeholder="Name" name="name" id="name"/>
                     </div>
                     <div class="tw-flex tw-flex-col tw-gap-1">
                         <div class="tw-text-gray-500">Telefon</div>
-                        <input type="text" class="input" required placeholder="Telefon" />
+                        <input type="text" class="input" required placeholder="Telefon" name="phone" id="phone"/>
                     </div>
                     <div class="tw-flex tw-flex-col tw-gap-1">
                         <div class="tw-text-gray-500">E-Mail</div>
-                        <input type="email" class="input" required placeholder="E-Mail" id="email" />
+                        <input type="email" class="input" required placeholder="E-Mail" name="email" id="email" />
                     </div>
                 </div>
 
@@ -452,13 +457,13 @@
                     </div>
                     <div class="tw-flex tw-flex-col tw-gap-1">
                         <div class="tw-text-gray-500">Datum</div>
-                        <input type="date" class="input" required placeholder="Datum" id="date" />
+                        <input type="date" class="input" required placeholder="Datum" name="date" id="date" />
                     </div>
                 </div>
 
                 <div class="tw-flex tw-w-full tw-flex-col tw-gap-2">
                     <div class="tw-text-gray-500">Bemerkungen</div>
-                    <textarea class="input tw-max-h-[250px] tw-min-h-[40px] tw-w-full tw-resize-y"></textarea>
+                    <textarea class="input tw-max-h-[250px] tw-min-h-[40px] tw-w-full tw-resize-y" name="message" id="message"></textarea>
                 </div>
 
                 <button href="#"
