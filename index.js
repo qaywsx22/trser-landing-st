@@ -137,7 +137,8 @@ async function sendData(formElement) {
       // Set the FormData instance as the request body
       body: formData,
     });
-    console.log(await response.json());
+    // console.log(await response.json());
+    alert(await response.json());
   } catch (e) {
     console.error(e);
   }
