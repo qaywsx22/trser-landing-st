@@ -138,7 +138,10 @@ async function sendData(formElement) {
       body: formData,
     });
     // console.log(await response.json());
-    alert(await response.json());
+    let resp = await response.json();
+    if (resp?.message != null) {
+        alert(resp.message);
+    }
   } catch (e) {
     console.error(e);
   }

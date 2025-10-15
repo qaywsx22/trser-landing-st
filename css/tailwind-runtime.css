@@ -640,6 +640,10 @@ video {
   margin-bottom: 0.75rem;
 }
 
+.tw-mb-5{
+  margin-bottom: 1.25rem;
+}
+
 .tw-ml-auto{
   margin-left: auto;
 }
@@ -674,10 +678,6 @@ video {
 
 .tw-mt-auto{
   margin-top: auto;
-}
-
-.tw-mb-5{
-  margin-bottom: 1.25rem;
 }
 
 .tw-flex{
