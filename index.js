@@ -13,6 +13,10 @@ if (heroSlides) {
     const heroSlideShow = new SlideShow(heroSlides, true, 10000)
 }
 
+const photoSlides = document.querySelector("#slideshow-section .slideshow-container")
+if (photoSlides) {
+    const photoSlideShow = new SlideShow(photoSlides, true, 10000)
+}
 
 const bookingDate = document.querySelector("#date")
 if (bookingDate) {
