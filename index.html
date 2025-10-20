@@ -26,7 +26,7 @@
         { "@type": "City", "name": "Hannover" },
         { "@type": "City", "name": "Hildesheim" }
       ],
-      "telephone": "+49 177 5444450",
+      "telephone": "+49 151 59033084",
       "email": "info@truckservice-hildesheim.de",
       "url": "https://www.truckservice-hildesheim.de/index.html",
       "priceRange": "€€",
@@ -55,12 +55,15 @@
     <meta property="og:image" content="https://www.truckservice-hildesheim.de/assets/truckservice-hidesheim-hannover-werkstatt-representation-1200x630.webp" />
 
     <link rel="shortcut icon" href="./assets/logo-light-3.svg" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" />
 
     <!-- <link rel="stylesheet" href="./css/tailwind-runtime.css" /> -->
     <link rel="stylesheet" href="./css/tailwind-build.css" />
     <link rel="stylesheet" href="./css/index.css" />
 
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
         integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ=="
@@ -132,7 +135,7 @@
             </div>
         </div>
         <button class="bi bi-list tw-absolute tw-right-3 tw-top-3 tw-z-50 tw-text-2xl tw-text-white md:tw-hidden"
-            onclick="toggleHeader()" aria-label="menu" id="collapse-btn">
+            onclick="toggleHeader()" aria-label="Menü" aria-expanded="false" id="collapse-btn">
             <!-- <i class="bi bi-list"></i> -->
         </button>
     </header>
@@ -142,6 +145,7 @@
         <div class="slideshow-container tw-flex tw-h-full tw-w-full tw-flex-col">
             <video loop="loop" autoplay="" playsinline="" muted="" width="100" height="100"
                 id="mejs_5348039793389735_html5" preload="none" src="./assets/video/video.mp4"
+                poster="./assets/video/poster.webp"
                 class="tw-h-full tw-w-full tw-object-cover tw-overflow-hidden tw-relative">
                 <source type="video/mp4" src="./assets/video/video.mp4">
             </video>
@@ -149,7 +153,7 @@
             <h1
                 class="tw-flex tw-flex-col tw-absolute tw-top-[10%] tw-left-[5%] tw-w-[70%] tw-h-[60%] tw-gap-4 max-md:tw-gap-2 tw-pt-4">
                 <span class="tw-pl-[3%] tw-text-white tw-text-8xl tw-font-semibold max-md:tw-text-3xl">
-                    Wilkommen bei
+                    Willkommen bei
                 </span>
                 <span class="tw-pl-[3%] tw-text-white tw-text-8xl tw-font-semibold max-md:tw-text-3xl">
                     Truckservice
@@ -177,7 +181,7 @@
             <div
                 class="tw-flex tw-place-content-center tw-place-items-center tw-h-[350px] tw-w-[400px] tw-overflow-hidden max-md:tw-mt-[5%] max-md:tw-h-[300px] max-md:tw-w-[300px]">
                 <img src="./assets/images/homepage/truck-40-t.webp" alt="LKW Werkstatt Hildesheim – 40-Tonner Service"
-                    class="tw-w-full tw-object-cover" />
+                    loading="lazy" class="tw-w-full tw-object-cover" width="1024px" height="1024px"/>
             </div>
             <div
                 class="tw-flex tw-h-full tw-flex-col tw-gap-[5%] max-md:tw-mt-2 max-md:tw-gap-[3%] max-md:tw-text-center">
@@ -277,7 +281,7 @@
     <section id="contact-section"
         class="tw-flex tw-w-full tw-place-content-center tw-place-items-center tw-gap-[10%] tw-overflow-hidden tw-bg-[#EFEFEF] tw-p-4 max-md:tw-pt-8 tw-px-[10%] max-md:tw-flex-col">
         <div class="tw-flex tw-h-[350px] tw-w-[350px] tw-overflow-hidden tw-rounded-md max-md:tw-hidden">
-            <img src="./assets/images/homepage/lkw-repair.webp" alt="LKW Reparatur Hannover" class="tw-w-full tw-object-cover" />
+            <img src="./assets/images/homepage/lkw-repair.webp" alt="LKW Reparatur Hannover" loading="lazy" class="tw-w-full tw-object-cover" width="2142px" height="2856px"/>
         </div>
         <div class="tw-mt-[5%] tw-flex tw-h-full tw-flex-col tw-gap-[5%]">
             <div class="tw-flex tw-flex-col tw-gap-2">
@@ -293,32 +297,32 @@
 
                 <div class="tw-flex tw-flex-col tw-gap-4">
                     <div class="tw-flex tw-flex-col tw-gap-1">
-                        <div class="tw-text-gray-500">Name</div>
+                        <label for="name" class="tw-text-gray-500">Name</label>
                         <input type="text" class="input" required placeholder="Name" name="name" id="name"/>
                     </div>
                     <div class="tw-flex tw-flex-col tw-gap-1">
-                        <div class="tw-text-gray-500">Telefon</div>
+                        <label for="phone" class="tw-text-gray-500">Telefon</label>
                         <input type="text" class="input" required placeholder="Telefon" name="phone" id="phone"/>
                     </div>
                     <div class="tw-flex tw-flex-col tw-gap-1">
-                        <div class="tw-text-gray-500">E-Mail</div>
+                        <label for="email" class="tw-text-gray-500">E-Mail</label>
                         <input type="email" class="input" required placeholder="E-Mail" name="email" id="email" />
                     </div>
                 </div>
 
                 <div class="tw-flex tw-gap-4">
                     <div class="tw-flex tw-w-full tw-flex-col tw-gap-1">
-                        <div class="tw-text-gray-500">Uhrzeit</div>
+                        <label for="timings" class="tw-text-gray-500">Uhrzeit</label>
                         <select name="timings" id="timings" class="input"></select>
                     </div>
                     <div class="tw-flex tw-flex-col tw-gap-1">
-                        <div class="tw-text-gray-500">Datum</div>
+                        <label for="date" class="tw-text-gray-500">Datum</label>
                         <input type="date" class="input" required placeholder="Datum" name="date" id="date" />
                     </div>
                 </div>
 
                 <div class="tw-flex tw-w-full tw-flex-col tw-gap-2">
-                    <div class="tw-text-gray-500">Bemerkungen</div>
+                    <label for="message" class="tw-text-gray-500">Bemerkungen</label>
                     <textarea class="input tw-max-h-[250px] tw-min-h-[40px] tw-w-full tw-resize-y" name="message" id="message"></textarea>
                 </div>
 
@@ -502,7 +506,7 @@
             <div class="tw-flex tw-flex-col tw-gap-3 max-md:tw-text-sm">
                 <a href="./imp.html" class="footer-link">Impressum</a>
                 <a href="./datenschutz.html" class="footer-link">Datenschutzerklärung</a>
-                <a href="" class="footer-link">AGB</a>
+                <!-- <a href="" class="footer-link">AGB</a> -->
                 <!-- <a href="" class="footer-link">Locations</a> -->
             </div>
         </div>

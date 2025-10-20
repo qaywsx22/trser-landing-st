@@ -2,6 +2,9 @@
 let isHeaderCollapsed = window.innerWidth < 1024
 const collapseHeaderItems = document.getElementById("collapsed-items")
 const collapseBtn = document.getElementById("collapse-btn")
+if (collapseBtn) {
+    collapseBtn.setAttribute("aria-expanded", String(!isHeaderCollapsed));
+}
 
 
 
@@ -12,24 +15,32 @@ if (heroSlides) {
 
 
 const bookingDate = document.querySelector("#date")
-const today = new Date().toISOString().split('T')[0]
-bookingDate.setAttribute('min', today)
+if (bookingDate) {
+    const today = new Date().toISOString().split('T')[0]
+    bookingDate.setAttribute('min', today)
+}
 
 
 /**
  * Set booking timing
  */
 const timings = document.querySelector("#timings")
-
-for (let x=7; x < 20; x+=0.30){
-    const nextTime = `${x.toFixed(2)}`.replace(".", ":")
-
-    timings.innerHTML += `<option value="${nextTime}">${nextTime}</option>`
-
+if (timings) {
+    for (let h = 7; h <= 19; h++) {
+        ["00", "30"].forEach((m) => {
+            const t = `${String(h).padStart(2, "0")}:${m}`
+            const opt = document.createElement("option")
+            opt.value = t
+            opt.textContent = t
+            timings.appendChild(opt)
+        })
+    }
 }
 
 const reviewContainer = document.querySelector(".review-container")
-const reviewSlideShow = new SlideShow(reviewContainer, true, 10000)
+if (reviewContainer) {
+    const reviewSlideShow = new SlideShow(reviewContainer, true, 10000)
+}
 
 
 function onHeaderClickOutside(e){
@@ -62,6 +73,8 @@ function toggleHeader(){
         window.removeEventListener("click", onHeaderClickOutside)
 
     }
+    const expanded = !isHeaderCollapsed;
+    collapseBtn.setAttribute("aria-expanded", String(expanded));
 }
 
 function responsive(){
@@ -75,10 +88,11 @@ function responsive(){
 window.addEventListener("resize", responsive)
 
 // review section
-const reviewModal = new Modal(document.querySelector("#modal")) // asks for user review
+const modalEl = document.querySelector("#modal")
+const reviewModal = modalEl ? new Modal(modalEl) : null // asks for user review
 
 const starContainer = document.querySelector('.stars')
-const stars = document.querySelectorAll('.star')
+const stars = starContainer ? starContainer.querySelectorAll('.star') : []
 
 function handleStarHover(event) {
     const rating = event.currentTarget.getAttribute('data-value')
@@ -97,6 +111,8 @@ function handleStarClicked(event){
      * a private review
      */
     const rating = event.currentTarget.getAttribute('data-value')
+
+    if (!reviewModal) return
 
     if (rating < 4){
         reviewModal.updateModal("We are sorry, you are disappointed", 
@@ -122,13 +138,13 @@ function hideActiveStar(){
     })
 }
 
-stars.forEach((star, i) => {
-    star.addEventListener('mouseover', handleStarHover)
-    star.addEventListener('click', handleStarClicked)
-   
-})
-    
-starContainer?.addEventListener('mouseleave', hideActiveStar)
+if (starContainer && reviewModal) {
+    stars.forEach((star) => {
+        star.addEventListener('mouseover', handleStarHover)
+        star.addEventListener('click', handleStarClicked)
+    })
+    starContainer.addEventListener('mouseleave', hideActiveStar)
+}
 
 async function sendData(formElement) {
   const action = "https://api.staticforms.xyz/submit"
