@@ -22,8 +22,8 @@ document.addEventListener("DOMContentLoaded", function () {
     /* Configuration constants */
     const SWIPE_THRESHOLD = 30;
     const PASSIVE_SUPPORT = checkPassiveSupport();
-    const IMAGE_BASE_URL =
-      "https://ik.imagekit.io/wsoltani/DEVCarousel/";
+    const IMAGE_BASE_URL = "./assets/images/slideshow/";
+      // "https://ik.imagekit.io/wsoltani/DEVCarousel/";
     const IMAGE_FORMATS = ["png", "jpg", "jpeg", "webp"]; // Try multiple image formats
 
     /* Responsive image sizes - disabled due to ImageKit compatibility
@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
     async function loadImagesFromImageKit() {
       try {
         // We'll try up to a reasonable maximum number of images
-        const MAX_IMAGES = 30;
+        const MAX_IMAGES = 10;
         const imagePromises = [];
 
         // Create promises for checking all possible images in parallel

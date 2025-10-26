@@ -4,13 +4,14 @@
   box-sizing: border-box;
 } */
 
-/* :root {
+:root {
   --primary-color: #3498db;
   --focus-color: #2980b9;
   --text-color: #333;
   --bg-color: #f5f5f5;
-  --overlay-color: rgba(0, 0, 0, 0.4);
-} */
+  --btn-bg-color: rgba(0, 0, 0, 0.4);
+  --overlay-color: #efefef;
+}
 
 /* html,
 body {
@@ -175,8 +176,8 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: min(50px, 15%); /* Responsive arrow size */
-  height: min(50px, 15%);
+  width: min(40px, 15%); /* Responsive arrow size */
+  height: min(40px, 15%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -185,7 +186,7 @@ body {
   cursor: pointer;
   border-radius: 50%;
   pointer-events: auto;
-  background-color: var(--overlay-color);
+  background-color: var(--btn-bg-color);
   opacity: 0.5;
   transition: all 0.3s ease;
   border: none;
