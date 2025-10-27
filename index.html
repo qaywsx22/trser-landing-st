@@ -62,6 +62,7 @@
     <!-- <link rel="stylesheet" href="./css/tailwind-runtime.css" /> -->
     <link rel="stylesheet" href="./css/tailwind-build.css" />
     <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/carousel.css" />
 
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
     <link rel="stylesheet"
@@ -128,10 +129,12 @@
         <div class="collapsible-header animated-collapse" id="collapsed-items">
             <div
                 class="tw-flex tw-h-full tw-w-max tw-gap-5 tw-text-base max-md:tw-mt-[30px] max-md:tw-flex-col max-md:tw-place-items-end max-md:tw-gap-5 md:tw-mx-auto md:tw-place-items-center">
+                <a class="header-links" href="./index.html"> Firma </a>
                 <a class="header-links" href="#about-section"> Über uns </a>
                 <a class="header-links" href="#services-section"> Services </a>
-                <!-- <a class="header-links" href="#price-section"> Preise </a> -->
                 <a class="header-links" href="#contact-section"> Kontaktieren Sie uns </a>
+                <a class="header-links" href="#carousel-section"> Bilder </a>
+                <a class="header-links" href="#onMap-section"> Kunden Meinungen </a>
             </div>
         </div>
         <button class="bi bi-list tw-absolute tw-right-3 tw-top-3 tw-z-50 tw-text-2xl tw-text-white md:tw-hidden"
@@ -143,14 +146,15 @@
     <section id="hero-section"
         class="tw-flex tw-h-[750px] tw-w-full tw-max-w-[100vw] tw-flex-col tw-overflow-hidden max-md:tw-h-[300px] tw-relative">
         <div class="slideshow-container tw-flex tw-h-full tw-w-full tw-flex-col">
-            <video loop="loop" autoplay="" playsinline="" muted="" width="100" height="100"
-                id="mejs_5348039793389735_html5" preload="none" src="./assets/video/video.mp4"
+            <video loop="loop" playsinline="" muted="" controls width="100" height="100"
+                id="hero-video" preload="none" src="./assets/video/video.mp4"
                 poster="./assets/video/poster.webp"
                 class="tw-h-full tw-w-full tw-object-cover tw-overflow-hidden tw-relative">
                 <source type="video/mp4" src="./assets/video/video.mp4">
             </video>
 
             <h1
+                style="pointer-events: none;"
                 class="tw-flex tw-flex-col tw-absolute tw-top-[10%] tw-left-[5%] tw-w-[70%] tw-h-[60%] tw-gap-4 max-md:tw-gap-2 tw-pt-4">
                 <span class="tw-pl-[3%] tw-text-white tw-text-8xl tw-font-semibold max-md:tw-text-3xl">
                     Willkommen bei
@@ -214,7 +218,7 @@
             tw-w-full 
             tw-place-items-center 
             tw-gap-[10%] 
-            tw-bg-[#EFEFEF] 
+            tw-bg-[#fff] 
             tw-p-8 
             tw-pt-16 
             tw-px-[20%] 
@@ -234,11 +238,6 @@
                 </div>
                 <div class="primary-text-color tw-text-2xl max-md:tw-text-lg">Reparatur und Instandsetzung</div>
             </div>
-            <!-- LKW Reparatur und Instandsetzung sind essenziell, um die Einsatzbereitschaft und Sicherheit von Nutzfahrzeugen langfristig zu gewährleisten. 
-                 Durch professionelle Wartung und schnelle Reparaturen lassen sich teure Ausfallzeiten und Folgeschäden effektiv vermeiden. Unsere Werkstatt bietet markenunabhängige Diagnose,
-                 moderne Technik und geschultes Fachpersonal – alles aus einer Hand. Vertrauen Sie auf zuverlässigen Service, damit Ihre Flotte jederzeit leistungsfähig bleibt.
-                 Optimieren Sie jetzt Ihre Betriebskosten durch regelmäßige LKW-Instandhaltung vom Experten.
-            -->
 
             <div class="tw-flex tw-flex-col tw-items-center tw-text-center tw-gap-4 tw-p-4 tw-w-full tw-h-full tw-max-w-[320px]">
                 <div class="tw-h-[120px] tw-w-[120px] sm:tw-h-[150px] sm:tw-w-[150px]">
@@ -270,16 +269,11 @@
                 </div>
                 <div class="primary-text-color tw-text-2xl max-md:tw-text-lg">Reparatur von Hydraulik-Anlagen</div>
             </div>
-            <!-- Die Reparatur von Hydraulik-Anlagen erfordert spezielles Know-how, da schon kleinste Undichtigkeiten oder Verschleißteile zu Leistungsverlust und Ausfällen führen können. 
-                 Wir bieten eine präzise Fehlerdiagnose, den Austausch defekter Komponenten und eine fachgerechte Instandsetzung – schnell und zuverlässig. Unsere Experten sorgen dafür, 
-                 dass Ihre Hydrauliksysteme wieder volle Kraft leisten und sicher arbeiten. Ob LKW, Baumaschine oder Spezialfahrzeug – wir bringen Ihre Technik wieder in Bestform. 
-                 Vertrauen Sie auf unsere Hydraulik-Kompetenz für maximale Betriebssicherheit.
-            -->
         </div>
     </section>
 
     <section id="contact-section"
-        class="tw-flex tw-w-full tw-place-content-center tw-place-items-center tw-gap-[10%] tw-overflow-hidden tw-bg-[#EFEFEF] tw-p-4 max-md:tw-pt-8 tw-px-[10%] max-md:tw-flex-col">
+        class="tw-flex tw-w-full tw-place-content-center tw-place-items-center tw-gap-[10%] tw-overflow-hidden tw-bg-[#EFEFEF] tw-p-4 tw-pt-16 max-md:tw-pt-8 tw-px-[10%] max-md:tw-flex-col">
         <div class="tw-flex tw-h-[350px] tw-w-[350px] tw-overflow-hidden tw-rounded-md max-md:tw-hidden">
             <img src="./assets/images/homepage/lkw-repair.webp" alt="LKW Reparatur Hannover" loading="lazy" class="tw-w-full tw-object-cover" width="2142px" height="2856px"/>
         </div>
@@ -340,7 +334,41 @@
         </div>
     </section>
 
-    <section class="tw-mt-5 tw-flex tw-w-full tw-flex-col tw-place-items-center tw-p-[5%]">
+    <section id="carousel-section"
+        class="tw-flex tw-h-[650px] tw-pt-16 tw-w-full tw-max-w-[100vw] tw-flex-col tw-overflow-hidden max-md:tw-h-[300px] tw-relative">
+        <h3 class="primary-text-color tw-text-3xl tw-font-medium max-md:tw-text-2xl tw-text-center">
+            Bilder
+        </h3>
+    
+        <div class="carousel tw-flex tw-h-full tw-w-full tw-flex-col" role="region" aria-roledescription="carousel"
+            aria-label="Image Carousel">
+            <!-- Dynamic radio inputs for slide selection -->
+    
+            <!-- Dynamic slides container -->
+            <div class="slidescar"></div>
+    
+            <!-- Dynamic navigation dots -->
+            <div class="navigation" role="tablist" aria-label="Carousel Navigation"></div>
+    
+            <!-- Prev/Next arrow controls -->
+            <div class="arrows">
+                <button class="arrow left-arrow" aria-label="Previous slide" type="button">
+                    <span aria-hidden="true">&#10094;</span>
+                </button>
+                <button class="arrow right-arrow" aria-label="Next slide" type="button">
+                    <span aria-hidden="true">&#10095;</span>
+                </button>
+            </div>
+    
+            <!-- Loading indicator with spinner -->
+            <div class="loading-indicator">
+                <div class="spinner"></div>
+                <p>Loading images...</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="onMap-section" class="tw-mt-5 tw-flex tw-pt-16 tw-w-full tw-flex-col tw-place-items-center tw-p-[5%]">
         <h3 class="primary-text-color tw-text-3xl tw-font-medium max-md:tw-text-2xl"
         >
             Truckservice Hildesheim GmbH on the Google Maps
@@ -515,5 +543,6 @@
 
 <script src="./scripts/utils.js"></script>
 <script src="index.js"></script>
+<script src="./scripts/carousel.js"></script>
 
 </html>

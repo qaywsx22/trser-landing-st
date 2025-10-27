@@ -718,6 +718,10 @@ video {
   height: 60px;
 }
 
+.tw-h-\[650px\] {
+  height: 650px;
+}
+
 .tw-h-\[750px\] {
   height: 750px;
 }
