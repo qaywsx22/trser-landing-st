@@ -283,3 +283,10 @@ header > .collapsible-header{
         color: white;
     }
 }
+
+.map-fluid {
+  width: 100%;
+  height: clamp(300px, 50vh, 500px);
+  border: 0;
+  border-radius: 8px; /* optional */
+}
