@@ -6,17 +6,10 @@ if (collapseBtn) {
     collapseBtn.setAttribute("aria-expanded", String(!isHeaderCollapsed));
 }
 
-
-
 const heroSlides = document.querySelector(".slideshow-container")
 if (heroSlides) {
     const heroSlideShow = new SlideShow(heroSlides, true, 10000)
 }
-
-// const photoSlides = document.querySelector("#slideshow-section .slideshow-container")
-// if (photoSlides) {
-//     const photoSlideShow = new SlideShow(photoSlides, true, 10000)
-// }
 
 const bookingDate = document.querySelector("#date")
 if (bookingDate) {
@@ -41,34 +34,87 @@ if (timings) {
     }
 }
 
-const reviewContainer = document.querySelector(".review-container")
-if (reviewContainer) {
-    const reviewSlideShow = new SlideShow(reviewContainer, true, 10000)
+function populateReviewsFromGlobal() {
+    const reviewContainerEl = document.querySelector(".review-container");
+    const slidesHost = document.getElementById("reviews-slides");
+    const dotsHost = document.getElementById("reviews-dots");
+    if (!reviewContainerEl || !slidesHost || !dotsHost) return;
+
+    const items = Array.isArray(window.REVIEWS) ? window.REVIEWS : [];
+
+    slidesHost.innerHTML = "";
+    dotsHost.innerHTML = "";
+
+    if (items.length === 0) {
+        const slide = document.createElement("div");
+        slide.className = "slides fade tw-text-justify tw-text-lg";
+        slide.innerHTML = `
+      <q class="tw-italic tw-text-gray-600">Aktuell liegen keine Bewertungen vor.</q>
+    `;
+        slidesHost.appendChild(slide);
+        const dot = document.createElement("span");
+        dot.className = "dot";
+        dotsHost.appendChild(dot);
+        new SlideShow(reviewContainerEl, true, 10000);
+        return;
+    }
+
+    items.forEach((r) => {
+        const slide = document.createElement("div");
+        slide.className = "slides fade tw-text-justify tw-text-lg";
+
+        const rating = Math.max(0, Math.min(5, Number(r?.rating ?? 0)));
+        const starsHTML = Array.from({ length: 5 })
+            .map((_, i) => (i < rating ? '<i class="bi bi-star-fill"></i>' : '<i class="bi bi-star"></i>'))
+            .join("");
+
+        slide.innerHTML = `
+      <q class="tw-italic tw-text-gray-600">${(r?.text ?? "").toString()}</q>
+      <div class="tw-mt-2 tw-text-yellow-400">
+        ${starsHTML}
+      </div>
+      <p class="tw-mt-3">- ${(r?.author ?? "Anonym").toString()}</p>
+    `;
+        slidesHost.appendChild(slide);
+    });
+
+    items.forEach(() => {
+        const dot = document.createElement("span");
+        dot.className = "dot";
+        dotsHost.appendChild(dot);
+    });
+
+    new SlideShow(reviewContainerEl, true, 10000);
+}
+
+document.addEventListener("DOMContentLoaded", populateReviewsFromGlobal);
+
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", populateReviewsFromJSON);
+} else {
+    populateReviewsFromJSON();
 }
 
 
-function onHeaderClickOutside(e){
 
-    if (!collapseHeaderItems.contains(e.target)){
+function onHeaderClickOutside(e) {
+
+    if (!collapseHeaderItems.contains(e.target)) {
         toggleHeader()
     }
 
 }
 
 
-function toggleHeader(){
-    // console.log("Colappse", isHeaderCollapsed)
-    if (isHeaderCollapsed){
-        // collapseHeaderItems.classList.remove("max-md:tw-opacity-0")
+function toggleHeader() {
+    if (isHeaderCollapsed) {
         collapseHeaderItems.classList.add("opacity-100")
         collapseHeaderItems.style.width = "60vw"
         collapseBtn.classList.remove("bi-list")
         collapseBtn.classList.add("bi-x")
         isHeaderCollapsed = false
-
         setTimeout(() => window.addEventListener("click", onHeaderClickOutside), 1)
-
-    }else{
+    } else {
         collapseHeaderItems.classList.remove("opacity-100")
         collapseHeaderItems.style.width = "0vw"
         collapseBtn.classList.remove("bi-x")
@@ -81,8 +127,8 @@ function toggleHeader(){
     collapseBtn.setAttribute("aria-expanded", String(expanded));
 }
 
-function responsive(){
-    if (window.innerWidth > 750){
+function responsive() {
+    if (window.innerWidth > 750) {
         collapseHeaderItems.style.width = ""
     }
 }
@@ -109,7 +155,7 @@ function handleStarHover(event) {
     })
 }
 
-function handleStarClicked(event){
+function handleStarClicked(event) {
     /**
      * If the rating is above 4 request the user to write a public review, else
      * a private review
@@ -118,14 +164,14 @@ function handleStarClicked(event){
 
     if (!reviewModal) return
 
-    if (rating < 4){
-        reviewModal.updateModal("We are sorry, you are disappointed", 
-                            "Please let us know what we can improve.")
+    if (rating < 4) {
+        reviewModal.updateModal("We are sorry, you are disappointed",
+            "Please let us know what we can improve.")
         reviewModal.showModalInput()
         reviewModal.updateButton("Submit")
-    }else{
-        reviewModal.updateModal("Thank you!", 
-                            `We are pleased to hear you like us. 
+    } else {
+        reviewModal.updateModal("Thank you!",
+            `We are pleased to hear you like us. 
                             Could you please rate us on Google maps?`)
         reviewModal.hideModalInput()
         reviewModal.updateButton("Open maps", "https://maps.app.goo.gl/")
@@ -135,9 +181,9 @@ function handleStarClicked(event){
 
 }
 
-function hideActiveStar(){
+function hideActiveStar() {
     stars.forEach(star => {
-        
+
         star.classList.remove('active')
     })
 }
@@ -151,27 +197,27 @@ if (starContainer && reviewModal) {
 }
 
 async function sendData(formElement) {
-  const action = "https://api.staticforms.xyz/submit"
-  const formData = new FormData(formElement);
-  try {
-    const response = await fetch(action, {
-      method: "POST",
-      // Set the FormData instance as the request body
-      body: formData,
-    });
-    // console.log(await response.json());
-    let resp = await response.json();
-    if (resp?.message != null) {
-        alert(resp.message);
+    const action = "https://api.staticforms.xyz/submit"
+    const formData = new FormData(formElement);
+    try {
+        const response = await fetch(action, {
+            method: "POST",
+            // Set the FormData instance as the request body
+            body: formData,
+        });
+        // console.log(await response.json());
+        let resp = await response.json();
+        if (resp?.message != null) {
+            alert(resp.message);
+        }
+    } catch (e) {
+        console.error(e);
     }
-  } catch (e) {
-    console.error(e);
-  }
 }
 
 document.querySelectorAll("form").forEach((form) => {
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    sendData(event.target);
-  });
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        sendData(event.target);
+    });
 });

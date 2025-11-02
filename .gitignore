@@ -5,6 +5,8 @@
 # production
 /build
 # misc
+/.continue
+
 .env.local
 .env.development.local
 .env.test.local

@@ -1,8 +1,6 @@
 ---
-globs: "**/*.{html,js,jsx,tsx}"
-description: This project configures Tailwind with the prefix tw-. Any new
-  markup or components must use tw- prefixed utilities to avoid collisions.
+globs: "**/*"
 alwaysApply: true
 ---
 
-Use the Tailwind CSS prefix tw- for all utility classes. Do not use unprefixed Tailwind classes.
+Use Tailwind CSS utilities only with the tw- prefix; do not introduce unprefixed Tailwind classes.
