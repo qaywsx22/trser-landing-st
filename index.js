@@ -89,14 +89,6 @@ function populateReviewsFromGlobal() {
 
 document.addEventListener("DOMContentLoaded", populateReviewsFromGlobal);
 
-if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", populateReviewsFromJSON);
-} else {
-    populateReviewsFromJSON();
-}
-
-
-
 function onHeaderClickOutside(e) {
 
     if (!collapseHeaderItems.contains(e.target)) {
@@ -104,7 +96,6 @@ function onHeaderClickOutside(e) {
     }
 
 }
-
 
 function toggleHeader() {
     if (isHeaderCollapsed) {
