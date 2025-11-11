@@ -34,16 +34,24 @@ if (timings) {
     }
 }
 
-function populateReviewsFromGlobal() {
+async function populateReviewsFromJSON() {
     const reviewContainerEl = document.querySelector(".review-container");
     const slidesHost = document.getElementById("reviews-slides");
     const dotsHost = document.getElementById("reviews-dots");
     if (!reviewContainerEl || !slidesHost || !dotsHost) return;
 
-    const items = Array.isArray(window.REVIEWS) ? window.REVIEWS : [];
-
     slidesHost.innerHTML = "";
     dotsHost.innerHTML = "";
+
+    let items = [];
+    try {
+        const resp = await fetch("./assets/reviews.json", { cache: "no-cache" });
+        if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+        const data = await resp.json();
+        if (Array.isArray(data)) items = data;
+    } catch (err) {
+        console.error("Failed to load reviews.json:", err);
+    }
 
     if (items.length === 0) {
         const slide = document.createElement("div");
@@ -59,11 +67,16 @@ function populateReviewsFromGlobal() {
         return;
     }
 
+    const clampRating = (n) => {
+        const r = Math.floor(Number(n) || 0);
+        return Math.max(0, Math.min(5, r));
+    };
+
     items.forEach((r) => {
         const slide = document.createElement("div");
         slide.className = "slides fade tw-text-justify tw-text-lg";
 
-        const rating = Math.max(0, Math.min(5, Number(r?.rating ?? 0)));
+        const rating = clampRating(r?.rating);
         const starsHTML = Array.from({ length: 5 })
             .map((_, i) => (i < rating ? '<i class="bi bi-star-fill"></i>' : '<i class="bi bi-star"></i>'))
             .join("");
@@ -87,7 +100,8 @@ function populateReviewsFromGlobal() {
     new SlideShow(reviewContainerEl, true, 10000);
 }
 
-document.addEventListener("DOMContentLoaded", populateReviewsFromGlobal);
+document.addEventListener("DOMContentLoaded", populateReviewsFromJSON);
+
 
 function onHeaderClickOutside(e) {
 

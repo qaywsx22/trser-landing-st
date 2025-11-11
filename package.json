@@ -6,7 +6,8 @@
   "scripts": {
     "start:tailwind": "cross-env NODE_ENV=development tailwindcss --postcss -i ./css/tailwind.css -o ./css/tailwind-runtime.css -w",
     "build:tailwind": "cross-env NODE_ENV=production tailwindcss --postcss -i ./css/tailwind.css -o ./css/tailwind-build.css --minify",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "robocopy . \"d:\\nginx\\html\\st\" /MIR /XD .continue .git node_modules .gitignore /XF .env"
   },
   "keywords": [
     "landing",
