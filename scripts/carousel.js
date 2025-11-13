@@ -22,10 +22,8 @@ document.addEventListener("DOMContentLoaded", function () {
     /* Configuration constants */
     const SWIPE_THRESHOLD = 30;
     const PASSIVE_SUPPORT = checkPassiveSupport();
-    const IMAGE_BASE_URL = "./assets/images/slideshow/";
-      // "https://ik.imagekit.io/wsoltani/DEVCarousel/";
-    // const IMAGE_FORMATS = ["png", "jpg", "jpeg", "webp"]; // Try multiple image formats
-    const IMAGE_FORMATS = ["webp"]; // Try multiple image formats
+        const CAROUSEL_JSON_URL = "./assets/carousel.json";
+
 
     /* Responsive image sizes - disabled due to ImageKit compatibility
     const IMAGE_SIZES = {
@@ -56,29 +54,27 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /* Module initialization */
-    function init() {
-      // First, dynamically load images
-      loadImagesFromImageKit()
-        .then(() => {
-          // Set up event listeners after images are loaded
+        function init() {
+      // Load images from JSON metadata
+      loadImagesFromJSON()
+        .then((images) => {
+          if (!images || images.length === 0) {
+            displayErrorMessage("Keine Bilder für das Karussell gefunden.");
+            return;
+          }
+
+          buildCarousel(images);
           setupEventListeners();
-
-          // Set initial state
           initializeCurrentSlide();
-
-          // Update ARIA attributes for initial state
           updateAriaAttributes();
         })
         .catch((error) => {
           console.error("Failed to load images:", error);
           displayErrorMessage(
-            `Failed to load images: ${
-              error.message || "Unknown error"
-            }. Please check your connection and try again.`
+            `Fehler beim Laden der Bilder: ${error.message || "Unbekannter Fehler"}. Bitte versuchen Sie es später erneut.`
           );
         });
 
-      // Return API
       return {
         goToSlide,
         getCurrentSlide: () => currentSlide,
@@ -86,90 +82,35 @@ document.addEventListener("DOMContentLoaded", function () {
       };
     }
 
-    /* Parallel image loading from ImageKit */
-    async function loadImagesFromImageKit() {
+
+        /* Load images metadata from JSON */
+    async function loadImagesFromJSON() {
       try {
-        // We'll try up to a reasonable maximum number of images
-        const MAX_IMAGES = 5;
-        const imagePromises = [];
+        const resp = await fetch(CAROUSEL_JSON_URL, { cache: "no-cache" });
+        if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+        const data = await resp.json();
+        if (!Array.isArray(data)) throw new Error("Ungültiges JSON-Format");
 
-        // Create promises for checking all possible images in parallel
-        for (let imageNum = 1; imageNum <= MAX_IMAGES; imageNum++) {
-          // For each image number, create a promise that resolves with the image info if found
-          const imagePromise = (async () => {
-            for (const format of IMAGE_FORMATS) {
-              const imageUrl = `${IMAGE_BASE_URL}${imageNum}.${format}`;
-              try {
-                const exists = await checkImageExists(imageUrl);
-                if (exists) {
-                  return {
-                    url: imageUrl,
-                    index: imageNum - 1,
-                    format: format,
-                    number: imageNum,
-                  };
-                }
-              } catch (error) {
-                console.warn(
-                  `Failed to check image ${imageNum}.${format}:`,
-                  error
-                );
-              }
-            }
-            return null; // No format worked for this image number
-          })();
+        const images = data
+          .filter((item) => item && typeof item.url === "string" && item.url.trim() !== "")
+          .map((item, idx) => ({
+            url: item.url.trim(),
+            altText:
+              typeof item.altText === "string" && item.altText.trim()
+                ? item.altText.trim()
+                : `Carousel image ${idx + 1}`,
+            width: Number(item.width) || undefined,
+            height: Number(item.height) || undefined,
+            number: idx + 1,
+          }));
 
-          imagePromises.push(imagePromise);
-        }
-
-        // Wait for all promises to resolve (with a timeout for better UX)
-        const timeoutPromise = new Promise((resolve) =>
-          setTimeout(() => resolve("timeout"), 15000)
-        );
-        const results = await Promise.race([
-          Promise.all(imagePromises),
-          timeoutPromise,
-        ]);
-
-        if (results === "timeout") {
-          console.warn(
-            "Image loading timed out after 15 seconds, using partial results"
-          );
-          // Get results from promises that have already resolved
-          const partialResults = await Promise.allSettled(imagePromises);
-          const loadedImages = partialResults
-            .filter((result) => result.status === "fulfilled" && result.value)
-            .map((result) => result.value)
-            .sort((a, b) => a.number - b.number); // Sort by image number
-
-          if (loadedImages.length > 0) {
-            console.log(
-              `Found ${loadedImages.length} images (partial results due to timeout)`
-            );
-            buildCarousel(loadedImages);
-            return true;
-          }
-        } else {
-          // Filter out nulls and sort by image number
-          const loadedImages = results
-            .filter(Boolean)
-            .sort((a, b) => a.number - b.number);
-
-          if (loadedImages.length > 0) {
-            console.log(`Found ${loadedImages.length} images`);
-            buildCarousel(loadedImages);
-            return true;
-          }
-        }
-
-        throw new Error(
-          "No images found in the specified folder. Please check the URL and image formats."
-        );
+        return images;
       } catch (error) {
-        console.error("Error loading images:", error);
+        console.error("Error loading carousel.json:", error);
         throw error;
       }
     }
+
 
     /* Image existence check with caching */
     function checkImageExists(url) {
@@ -230,35 +171,32 @@ document.addEventListener("DOMContentLoaded", function () {
       carousel.insertBefore(radioFragment, slidesContainer);
 
       // Create slides
-      images.forEach((image, index) => {
-        // Create slide
+            images.forEach((image, index) => {
         const slide = document.createElement("div");
         slide.className = "slide";
         slide.setAttribute("role", "group");
         slide.setAttribute("aria-roledescription", "slide");
         slide.setAttribute("aria-label", `${index + 1} of ${images.length}`);
 
-        // Create image (without responsive srcset since ImageKit doesn't support the size format we tried)
         const img = document.createElement("img");
         img.src = image.url;
-        img.alt = `Cat image ${index + 1} (${image.format.toUpperCase()})`;
+        img.alt = image.altText || `Carousel image ${index + 1}`;
+        if (image.width) img.width = image.width;
+        if (image.height) img.height = image.height;
         img.loading = index === 0 ? "eager" : "lazy";
         img.setAttribute("data-index", index);
-        img.setAttribute("data-format", image.format);
 
-        // Add fallback for no JS
         const noscript = document.createElement("noscript");
         const fallbackP = document.createElement("p");
         fallbackP.className = "fallback-message";
-        fallbackP.textContent =
-          "Please enable JavaScript to view the carousel.";
+        fallbackP.textContent = "Please enable JavaScript to view the carousel.";
         noscript.appendChild(fallbackP);
 
-        // Assemble slide
         slide.appendChild(img);
         slide.appendChild(noscript);
         slidesContainer.appendChild(slide);
       });
+
 
       // Create navigation dots
       images.forEach((image, index) => {

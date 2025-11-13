@@ -1,0 +1,32 @@
+[
+  {
+    "url": "./assets/images/slideshow/1.webp",
+    "width": 1600,
+    "height": 900,
+    "altText": "Werkstatt – LKW in Reparatur"
+  },
+  {
+    "url": "./assets/images/slideshow/2.webp",
+    "width": 1600,
+    "height": 900,
+    "altText": "Servicehalle – Hydraulikarbeiten"
+  },
+  {
+    "url": "./assets/images/slideshow/3.webp",
+    "width": 1600,
+    "height": 900,
+    "altText": "Diagnosebereich – Elektronikprüfung"
+  },
+  {
+    "url": "./assets/images/slideshow/4.webp",
+    "width": 1600,
+    "height": 900,
+    "altText": "Ersatzteile & Werkzeug – bereit für den Einsatz"
+  },
+  {
+    "url": "./assets/images/slideshow/5.webp",
+    "width": 1600,
+    "height": 900,
+    "altText": "Außenansicht – Truckservice Hildesheim GmbH"
+  }
+]

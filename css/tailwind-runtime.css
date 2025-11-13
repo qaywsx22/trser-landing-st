@@ -1335,10 +1335,6 @@ video {
     font-size: 1.25rem;
     line-height: 1.75rem;
   }
-
-  .max-md\:tw-opacity-0 {
-    opacity: 0;
-  }
 }
 
 @media (min-width: 640px) {
