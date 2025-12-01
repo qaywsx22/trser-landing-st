@@ -1,26 +1,464 @@
 [
   {
-    "url": "./assets/images/slideshow/1.webp",
-    "width": 1600,
-    "height": 900,
+    "url": "./assets/images/slideshow/065.webp",
+    "width": 640,
+    "height": 480,
     "altText": "Werkstatt – LKW in Reparatur"
   },
   {
-    "url": "./assets/images/slideshow/3.webp",
-    "width": 1600,
-    "height": 900,
-    "altText": "Diagnosebereich – Elektronikprüfung"
+    "url": "./assets/images/slideshow/004.webp",
+    "width": 360,
+    "height": 480,
+    "altText": "EAPU Scania Original"
   },
   {
-    "url": "./assets/images/slideshow/4.webp",
-    "width": 1600,
-    "height": 900,
-    "altText": "Ersatzteile & Werkzeug – bereit für den Einsatz"
+    "url": "./assets/images/slideshow/005.webp",
+    "width": 360,
+    "height": 480,
+    "altText": "Bremsklotzen + Bremsscheiben Hinterachse erneuern"
   },
   {
-    "url": "./assets/images/slideshow/5.webp",
-    "width": 1600,
-    "height": 900,
-    "altText": "Außenansicht – Truckservice Hildesheim GmbH"
+    "url": "./assets/images/slideshow/014.webp",
+    "width": 360,
+    "height": 480,
+    "altText": "Bremsklotzen + Bremsscheiben Hinterachse erneuern"
+  },
+  {
+    "url": "./assets/images/slideshow/017.webp",
+    "width": 640,
+    "height": 480,
+    "altText": "Bremsklotzen + Bremsscheiben Hinterachse erneuern"
+  },
+  {
+    "url": "./assets/images/slideshow/007.webp",
+    "width": 360,
+    "height": 480,
+    "altText": "EAPU Scania defekt"
+  },
+  {
+    "url": "./assets/images/slideshow/018.webp",
+    "width": 640,
+    "height": 480,
+    "altText": "EAPU Scania defekt"
+  },
+  {
+    "url": "./assets/images/slideshow/008.webp",
+    "width": 640,
+    "height": 480,
+    "altText": "Motor Mitsubishi Ausbau"
+  },
+  {
+    "url": "./assets/images/slideshow/071.webp",
+    "width": 360,
+    "height": 480,
+    "altText": "Motor Mitsubishi Ausbau"
+  },
+  {
+    "url": "./assets/images/slideshow/072.webp",
+    "width": 640,
+    "height": 480,
+    "altText": "Motor Mitsubishi Ausbau"
+  },
+  {
+    "url": "./assets/images/slideshow/075.webp",
+    "width": 360,
+    "height": 480,
+    "altText": "Motor Mitsubishi Ausbau"
+  },
+  {
+    "url": "./assets/images/slideshow/029.webp",
+    "width": 640,
+    "height": 480,
+    "altText": "Motor Mitsubishi Ausbau"
+  },
+  {
+    "url": "./assets/images/slideshow/032.webp",
+    "width": 640,
+    "height": 480,
+    "altText": "Motor Mitsubishi Ausbau"
+  },
+  {
+    "url": "./assets/images/slideshow/009.webp",
+    "width": 360,
+    "height": 480,
+    "altText": "Ausbau EAPU von Scania"
+  },
+  {
+    "url": "./assets/images/slideshow/012.webp",
+    "width": 360,
+    "height": 480,
+    "altText": "Ausbau EAPU von Scania"
+  },
+  {
+    "url": "./assets/images/slideshow/013.webp",
+    "width": 640,
+    "height": 480,
+    "altText": "Ausbau EAPU von Scania"
+  },
+  {
+    "url": "./assets/images/slideshow/011.webp",
+    "width": 640,
+    "height": 480,
+    "altText": "Kühler-Packet Mitsubishi"
+  },
+  {
+    "url": "./assets/images/slideshow/035.webp",
+    "width": 360,
+    "height": 480,
+    "altText": "Kühler-Packet Mitsubishi"
+  },
+  {
+    "url": "./assets/images/slideshow/015.webp",
+    "width": 360,
+    "height": 480,
+    "altText": "Bremsscheiben + Klötze Hinterachse defekt"
+  },
+  {
+    "url": "./assets/images/slideshow/016.webp",
+    "width": 360,
+    "height": 480,
+    "altText": "Bremsscheiben + Klötze Hinterachse defekt"
+  },
+  {
+    "url": "./assets/images/slideshow/019.webp",
+    "width": 360,
+    "height": 480,
+    "altText": "Bremsscheiben + Klötze Hinterachse defekt"
+  },
+  {
+    "url": "./assets/images/slideshow/020.webp",
+    "width": 360,
+    "height": 480,
+    "altText": "Bremsscheiben + Klötze Hinterachse defekt"
+  },
+  {
+    "url": "./assets/images/slideshow/028.webp",
+    "width": 360,
+    "height": 480,
+    "altText": "Bremsscheiben + Klötze Hinterachse defekt"
+  },
+  {
+    "url": "./assets/images/slideshow/021.webp",
+    "width": 640,
+    "height": 480,
+    "altText": "Vorderachse Renault"
+  },
+  {
+    "url": "./assets/images/slideshow/022.webp",
+    "width": 360,
+    "height": 480,
+    "altText": "Vorderachse Renault"
+  },
+  {
+    "url": "./assets/images/slideshow/023.webp",
+    "width": 640,
+    "height": 480,
+    "altText": "Reparatur Scania SZM"
+  },
+  {
+    "url": "./assets/images/slideshow/024.webp",
+    "width": 640,
+    "height": 480,
+    "altText": "Reparatur Scania SZM"
+  },
+  {
+    "url": "./assets/images/slideshow/026.webp",
+    "width": 360,
+    "height": 480,
+    "altText": "Reparatur Scania SZM"
+  },
+  {
+    "url": "./assets/images/slideshow/030.webp",
+    "width": 640,
+    "height": 480,
+    "altText": "Reparatur Scania SZM"
+  },
+  {
+    "url": "./assets/images/slideshow/027.webp",
+    "width": 360,
+    "height": 480,
+    "altText": "Reparatur Scania SZM"
+  },
+  {
+    "url": "./assets/images/slideshow/034.webp",
+    "width": 360,
+    "height": 480,
+    "altText": "Reparatur Scania SZM"
+  },
+  {
+    "url": "./assets/images/slideshow/033.webp",
+    "width": 360,
+    "height": 480,
+    "altText": "Reparatur Scania SZM"
+  },
+  {
+    "url": "./assets/images/slideshow/038.webp",
+    "width": 640,
+    "height": 480,
+    "altText": "Reparatur MB Actros MP4 Unfall"
+  },
+  {
+    "url": "./assets/images/slideshow/039.webp",
+    "width": 640,
+    "height": 480,
+    "altText": "Reparatur MB Actros MP4 Unfall"
+  },
+  {
+    "url": "./assets/images/slideshow/040.webp",
+    "width": 640,
+    "height": 480,
+    "altText": "Reparatur MB Actros MP4 Unfall"
+  },
+  {
+    "url": "./assets/images/slideshow/041.webp",
+    "width": 640,
+    "height": 480,
+    "altText": "Reparatur MB Actros MP4 Unfall"
+  },
+  {
+    "url": "./assets/images/slideshow/093.webp",
+    "width": 640,
+    "height": 480,
+    "altText": "Reparatur MB Actros MP4 Unfall"
+  },
+  {
+    "url": "./assets/images/slideshow/094.webp",
+    "width": 360,
+    "height": 480,
+    "altText": "Reparatur MB Actros MP4 Unfall"
+  },
+  {
+    "url": "./assets/images/slideshow/095.webp",
+    "width": 360,
+    "height": 480,
+    "altText": "Reparatur MB Actros MP4 Unfall"
+  },
+  {
+    "url": "./assets/images/slideshow/042.webp",
+    "width": 360,
+    "height": 480,
+    "altText": "Reparatur Aufbau Renault Master Unfall"
+  },
+  {
+    "url": "./assets/images/slideshow/048.webp",
+    "width": 360,
+    "height": 480,
+    "altText": "Reparatur Aufbau Renault Master Unfall"
+  },
+  {
+    "url": "./assets/images/slideshow/049.webp",
+    "width": 360,
+    "height": 480,
+    "altText": "Reparatur Aufbau Renault Master Unfall"
+  },
+  {
+    "url": "./assets/images/slideshow/050.webp",
+    "width": 360,
+    "height": 480,
+    "altText": "Reparatur Aufbau Renault Master Unfall"
+  },
+  {
+    "url": "./assets/images/slideshow/051.webp",
+    "width": 360,
+    "height": 480,
+    "altText": "Reparatur Aufbau Renault Master Unfall"
+  },
+  {
+    "url": "./assets/images/slideshow/052.webp",
+    "width": 360,
+    "height": 480,
+    "altText": "Reparatur Aufbau Renault Master Unfall"
+  },
+  {
+    "url": "./assets/images/slideshow/053.webp",
+    "width": 360,
+    "height": 480,
+    "altText": "Reparatur Aufbau Renault Master Unfall"
+  },
+  {
+    "url": "./assets/images/slideshow/054.webp",
+    "width": 360,
+    "height": 480,
+    "altText": "Reparatur Aufbau Renault Master Unfall"
+  },
+  {
+    "url": "./assets/images/slideshow/057.webp",
+    "width": 360,
+    "height": 480,
+    "altText": "Reparatur Aufbau Renault Master Unfall"
+  },
+  {
+    "url": "./assets/images/slideshow/058.webp",
+    "width": 360,
+    "height": 480,
+    "altText": "Reparatur Aufbau Renault Master Unfall"
+  },
+  {
+    "url": "./assets/images/slideshow/096.webp",
+    "width": 360,
+    "height": 480,
+    "altText": "Reparatur Aufbau Renault Master Unfall"
+  },
+  {
+    "url": "./assets/images/slideshow/043.webp",
+    "width": 640,
+    "height": 480,
+    "altText": "Lackierung von MB Actros MP4"
+  },
+  {
+    "url": "./assets/images/slideshow/044.webp",
+    "width": 640,
+    "height": 480,
+    "altText": "Lackierung von MB Actros MP4"
+  },
+  {
+    "url": "./assets/images/slideshow/045.webp",
+    "width": 640,
+    "height": 480,
+    "altText": "Lackierung von MB Actros MP4"
+  },
+  {
+    "url": "./assets/images/slideshow/046.webp",
+    "width": 360,
+    "height": 480,
+    "altText": "Lackierung von MB Actros MP4"
+  },
+  {
+    "url": "./assets/images/slideshow/047.webp",
+    "width": 640,
+    "height": 480,
+    "altText": "Lackierung Renault Master Beule"
+  },
+  {
+    "url": "./assets/images/slideshow/055.webp",
+    "width": 360,
+    "height": 480,
+    "altText": "Lackierung Renault Master Beule"
+  },
+  {
+    "url": "./assets/images/slideshow/056.webp",
+    "width": 270,
+    "height": 480,
+    "altText": "Lackierung Renault Master Beule"
+  },
+  {
+    "url": "./assets/images/slideshow/059.webp",
+    "width": 360,
+    "height": 480,
+    "altText": "Ausbau von Kupplung"
+  },
+  {
+    "url": "./assets/images/slideshow/060.webp",
+    "width": 640,
+    "height": 480,
+    "altText": "Service MB Atego"
+  },
+  {
+    "url": "./assets/images/slideshow/061.webp",
+    "width": 640,
+    "height": 480,
+    "altText": "Service MB Atego"
+  },
+  {
+    "url": "./assets/images/slideshow/062.webp",
+    "width": 640,
+    "height": 480,
+    "altText": "Getriebenheber"
+  },
+  {
+    "url": "./assets/images/slideshow/063.webp",
+    "width": 360,
+    "height": 480,
+    "altText": "Getriebenheber"
+  },
+  {
+    "url": "./assets/images/slideshow/068.webp",
+    "width": 640,
+    "height": 480,
+    "altText": "Blattfederung Tieflader Ausbau"
+  },
+  {
+    "url": "./assets/images/slideshow/069.webp",
+    "width": 640,
+    "height": 480,
+    "altText": "Blattfederung Tieflader Ausbau"
+  },
+  {
+    "url": "./assets/images/slideshow/070.webp",
+    "width": 640,
+    "height": 480,
+    "altText": "Blattfederung Tieflader Ausbau"
+  },
+  {
+    "url": "./assets/images/slideshow/073.webp",
+    "width": 640,
+    "height": 480,
+    "altText": "MB Atego. Hinterachse Bremsscheiben erneuern"
+  },
+  {
+    "url": "./assets/images/slideshow/074.webp",
+    "width": 640,
+    "height": 480,
+    "altText": "MB Atego. Hinterachse Bremsscheiben erneuern"
+  },
+  {
+    "url": "./assets/images/slideshow/078.webp",
+    "width": 640,
+    "height": 480,
+    "altText": "Reparatur MAN Hydrodrive"
+  },
+  {
+    "url": "./assets/images/slideshow/091.webp",
+    "width": 270,
+    "height": 480,
+    "altText": "Reparatur MAN Hydrodrive"
+  },
+  {
+    "url": "./assets/images/slideshow/079.webp",
+    "width": 640,
+    "height": 480,
+    "altText": "Reparatur MAN Hydrodrive"
+  },
+  {
+    "url": "./assets/images/slideshow/081.webp",
+    "width": 640,
+    "height": 480,
+    "altText": "Reparatur MAN Hydrodrive"
+  },
+  {
+    "url": "./assets/images/slideshow/082.webp",
+    "width": 640,
+    "height": 480,
+    "altText": "Reparatur MAN Hydrodrive"
+  },
+  {
+    "url": "./assets/images/slideshow/083.webp",
+    "width": 640,
+    "height": 480,
+    "altText": "Reparatur MAN Hydrodrive"
+  },
+  {
+    "url": "./assets/images/slideshow/085.webp",
+    "width": 640,
+    "height": 480,
+    "altText": "Reparatur MAN Hydrodrive"
+  },
+  {
+    "url": "./assets/images/slideshow/084.webp",
+    "width": 360,
+    "height": 480,
+    "altText": "Einbau von Standheizung"
+  },
+  {
+    "url": "./assets/images/slideshow/089.webp",
+    "width": 640,
+    "height": 336,
+    "altText": "Reparatur von SZM"
+  },
+  {
+    "url": "./assets/images/slideshow/090.webp",
+    "width": 308,
+    "height": 480,
+    "altText": "Klimaservice"
   }
 ]
