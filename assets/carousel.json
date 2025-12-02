@@ -42,12 +42,6 @@
     "altText": "Ausbau EAPU von Scania"
   },
   {
-    "url": "./assets/images/slideshow/014.webp",
-    "width": 360,
-    "height": 480,
-    "altText": "Bremsklotzen + Bremsscheiben Hinterachse erneuern"
-  },
-  {
     "url": "./assets/images/slideshow/018.webp",
     "width": 640,
     "height": 480,
@@ -394,18 +388,6 @@
     "width": 360,
     "height": 480,
     "altText": "Einbau von Standheizung"
-  },
-  {
-    "url": "./assets/images/slideshow/028.webp",
-    "width": 360,
-    "height": 480,
-    "altText": "Bremsscheiben + Klötze Hinterachse defekt"
-  },
-  {
-    "url": "./assets/images/slideshow/034.webp",
-    "width": 360,
-    "height": 480,
-    "altText": "Reparatur Scania SZM"
   },
   {
     "url": "./assets/images/slideshow/093.webp",
